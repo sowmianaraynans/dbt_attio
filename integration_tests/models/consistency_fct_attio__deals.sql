@@ -3,6 +3,6 @@
 
 {{ config(enabled=var('attio__using_deals', true)) }}
 
-select record_id
+select deal_id
 from {{ ref('fct_attio__deals') }}
-where record_id is null
+where deal_id is null
