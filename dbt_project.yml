@@ -28,10 +28,19 @@ models:
       +materialized: table
 
 vars:
+  # Source location — override to point at your Fivetran schema
+  attio_schema: "attio"
+  attio_database: null   # defaults to target.database when null
+
   # Standard Attio object slugs — override if your workspace uses different names
   attio__company_object_slug: "companies"
   attio__person_object_slug: "people"
   attio__deal_object_slug: "deals"
+
+  # Enable/disable optional mart models — set to false if your workspace doesn't use them
+  attio__using_deals: true
+  attio__using_notes: true
+  attio__using_lists: true
 
   # Add workspace-specific custom attribute slugs here to include them in pivots
   attio__company_custom_attributes: []   # e.g. ['arr', 'tier', 'industry']

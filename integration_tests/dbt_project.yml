@@ -1,0 +1,27 @@
+name: dbt_attio_integration_tests
+version: "0.1.0"
+config-version: 2
+
+profile: dbt_attio_integration_tests
+
+model-paths: ["models"]
+seed-paths: ["../seeds"]   # reuse seeds from the parent package
+test-paths: ["../tests"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  attio_schema: "attio"
+
+  attio__company_object_slug: "companies"
+  attio__person_object_slug: "people"
+  attio__deal_object_slug: "deals"
+
+  attio__using_deals: true
+  attio__using_notes: true
+  attio__using_lists: true
+
+  attio__company_custom_attributes: []
+  attio__person_custom_attributes: []
+  attio__deal_custom_attributes: []

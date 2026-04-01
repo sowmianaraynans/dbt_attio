@@ -5,3 +5,8 @@ dev.duckdb
 dev.duckdb.wal
 .venv/
 profiles.yml
+integration_tests/profiles.yml
+integration_tests/target/
+integration_tests/dbt_packages/
+integration_tests/dev.duckdb
+integration_tests/dev.duckdb.wal

@@ -1,3 +1,5 @@
+{{ config(enabled=var('attio__using_notes', true)) }}
+
 /*
   fct_attio__notes
   ----------------
