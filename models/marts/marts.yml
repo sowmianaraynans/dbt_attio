@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: fct_attio__records
+    description: >
+      One row per CRM record, enriched with object type, pivoted EAV attribute
+      values, and note counts. The pivoted columns cover Attio standard attributes;
+      add workspace-specific slugs to the pivot CTE as needed.
+    columns:
+      - name: record_id
+        tests: [not_null, unique]
+      - name: object_id
+        tests: [not_null]
+      - name: object_slug
+        tests: [not_null]
+
+  - name: dim_attio__attributes
+    description: >
+      Union of all object and list attribute definitions, enriched with
+      option/status labels. Use to decode attribute_id references in
+      record_values and entries_values.
+    columns:
+      - name: attribute_id
+        tests: [not_null, unique]
+
+  - name: dim_attio__workspace_members
+    description: Attio workspace users — use to resolve owner/assigned-to fields.
+    columns:
+      - name: workspace_member_id
+        tests: [not_null, unique]
+
+  - name: fct_attio__notes
+    description: One row per note, joined to record and author context.
+    columns:
+      - name: note_id
+        tests: [not_null, unique]
+
+  - name: fct_attio__entries
+    description: >
+      One row per list entry with key attribute values pivoted. Represents
+      a record's presence in a list (e.g. a deal in a pipeline).
+    columns:
+      - name: entry_id
+        tests: [not_null, unique]

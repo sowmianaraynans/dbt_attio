@@ -1,0 +1,109 @@
+version: 2
+
+sources:
+  - name: attio
+    description: Raw Attio CRM data loaded by Fivetran
+    schema: attio  # override in dbt_project.yml or profiles if needed
+    tables:
+      - name: record
+        description: Top-level CRM records (contacts, companies, deals, etc.)
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: object_id
+            tests: [not_null]
+          - name: created_at
+
+      - name: record_value
+        description: EAV table — one row per attribute value per record
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: record_id
+            tests: [not_null]
+          - name: attribute_id
+            tests: [not_null]
+
+      - name: object
+        description: Object type definitions (contact, company, deal, etc.)
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: object_attribute
+        description: Attribute definitions for each object type
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: object_id
+            tests: [not_null]
+
+      - name: object_attribute_status
+        description: Status option values for status-type object attributes
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: object_attribute_option
+        description: Select option values for select-type object attributes
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: note
+        description: Notes attached to records
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: record_id
+            tests: [not_null]
+
+      - name: workspace_member
+        description: Members (users) of the Attio workspace
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: list
+        description: Lists in the Attio workspace
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: list_attribute
+        description: Attribute definitions for each list
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: list_id
+            tests: [not_null]
+
+      - name: list_attribute_status
+        description: Status options for status-type list attributes
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: list_attribute_option
+        description: Select options for select-type list attributes
+        columns:
+          - name: id
+            tests: [not_null, unique]
+
+      - name: entries
+        description: Entries (rows) within Attio lists
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: list_id
+            tests: [not_null]
+
+      - name: entries_value
+        description: EAV table — one row per attribute value per list entry
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: entry_id
+            tests: [not_null]
+          - name: attribute_id
+            tests: [not_null]

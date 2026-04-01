@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: stg_attio__records
+    description: Cleaned records — one row per CRM record (contact, company, deal, etc.)
+    columns:
+      - name: record_id
+        tests: [not_null, unique]
+      - name: object_id
+        tests: [not_null]
+
+  - name: stg_attio__record_values
+    description: EAV values for records — one row per attribute value per record
+    columns:
+      - name: record_value_id
+        tests: [not_null, unique]
+      - name: record_id
+        tests: [not_null]
+      - name: attribute_id
+        tests: [not_null]
+
+  - name: stg_attio__objects
+    description: Object type definitions
+    columns:
+      - name: object_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__object_attributes
+    description: Attribute schema for each object type
+    columns:
+      - name: attribute_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__object_attribute_statuses
+    description: Status options for status-type object attributes
+    columns:
+      - name: status_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__object_attribute_options
+    description: Select options for select-type object attributes
+    columns:
+      - name: option_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__notes
+    description: Notes attached to records
+    columns:
+      - name: note_id
+        tests: [not_null, unique]
+      - name: record_id
+        tests: [not_null]
+
+  - name: stg_attio__workspace_members
+    description: Workspace users
+    columns:
+      - name: workspace_member_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__lists
+    description: Lists in the workspace
+    columns:
+      - name: list_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__list_attributes
+    description: Attribute schema for each list
+    columns:
+      - name: attribute_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__list_attribute_statuses
+    columns:
+      - name: status_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__list_attribute_options
+    columns:
+      - name: option_id
+        tests: [not_null, unique]
+
+  - name: stg_attio__entries
+    description: List entries — the join between a record and a list
+    columns:
+      - name: entry_id
+        tests: [not_null, unique]
+      - name: list_id
+        tests: [not_null]
+      - name: record_id
+        tests: [not_null]
+
+  - name: stg_attio__entries_values
+    description: EAV values for list entries
+    columns:
+      - name: entry_value_id
+        tests: [not_null, unique]
+      - name: entry_id
+        tests: [not_null]
+      - name: attribute_id
+        tests: [not_null]
