@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: dbt run + test (DuckDB)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dbt
+        run: pip install dbt-core dbt-duckdb
+
+      - name: Install dbt packages
+        run: dbt deps
+
+      - name: Seed
+        run: dbt seed --profiles-dir .github/profiles
+
+      - name: Run
+        run: dbt run --profiles-dir .github/profiles
+
+      - name: Test
+        run: dbt test --profiles-dir .github/profiles
+
+  integration:
+    name: integration_tests (DuckDB)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dbt
+        run: pip install dbt-core dbt-duckdb
+
+      - name: Install dbt packages
+        working-directory: integration_tests
+        run: dbt deps
+
+      - name: Seed
+        working-directory: integration_tests
+        run: dbt seed --profiles-dir ../.github/profiles/integration_tests
+
+      - name: Run
+        working-directory: integration_tests
+        run: dbt run --profiles-dir ../.github/profiles/integration_tests
+
+      - name: Test
+        working-directory: integration_tests
+        run: dbt test --profiles-dir ../.github/profiles/integration_tests
