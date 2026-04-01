@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: attio
     description: Raw Attio CRM data loaded by Fivetran
-    database: "{{ var('attio_database', target.database) }}"
+    database: "{{ var('attio_database', target.database) or target.database }}"
     schema: "{{ var('attio_schema', 'attio') }}"
     tables:
       - name: record
