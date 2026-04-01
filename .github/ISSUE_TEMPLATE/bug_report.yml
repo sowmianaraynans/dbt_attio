@@ -1,0 +1,45 @@
+name: Bug report
+description: Something is broken
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: warehouse
+    attributes:
+      label: Warehouse
+      options: [DuckDB, Snowflake, Databricks, BigQuery, Other]
+    validations:
+      required: true
+
+  - type: input
+    id: dbt_version
+    attributes:
+      label: dbt version
+      placeholder: "e.g. 1.7.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Include the model name and error message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Set vars ...
+        2. Run `dbt run -s ...`
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true

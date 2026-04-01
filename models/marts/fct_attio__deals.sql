@@ -1,3 +1,5 @@
+{{ config(enabled=var('attio__using_deals', true)) }}
+
 /*
   fct_attio__deals
   ----------------

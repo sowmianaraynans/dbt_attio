@@ -1,3 +1,5 @@
+{{ config(enabled=var('attio__using_lists', true)) }}
+
 /*
   fct_attio__list_entries
   -----------------------
