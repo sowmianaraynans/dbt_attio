@@ -6,6 +6,8 @@ dev.duckdb.wal
 .venv/
 profiles.yml
 integration_tests/profiles.yml
+!.github/profiles/profiles.yml
+!.github/profiles/integration_tests/profiles.yml
 integration_tests/target/
 integration_tests/dbt_packages/
 integration_tests/dev.duckdb
