@@ -1,0 +1,4 @@
+id,api_slug,singular_noun,plural_noun,created_at,_fivetran_synced,_fivetran_deleted
+obj_001,companies,Company,Companies,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+obj_002,people,Person,People,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+obj_003,deals,Deal,Deals,2024-01-01T00:00:00,2024-01-01T00:00:00,false

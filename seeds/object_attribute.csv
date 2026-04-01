@@ -1,0 +1,21 @@
+id,object_id,api_slug,title,type,is_required,is_unique,is_multiselect,is_archived,created_at,_fivetran_synced,_fivetran_deleted
+oa_001,obj_001,name,Name,text,true,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_002,obj_001,domains,Domains,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_003,obj_001,description,Description,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_004,obj_001,employee_range,Employee Range,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_005,obj_001,annual_revenue,Annual Revenue,number,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_006,obj_001,primary_location,Primary Location,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_007,obj_001,categories,Categories,select,false,false,true,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_008,obj_001,owner,Owner,workspace-member,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_009,obj_002,name,Name,text,true,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_010,obj_002,email_addresses,Email,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_011,obj_002,phone_numbers,Phone,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_012,obj_002,job_title,Job Title,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_013,obj_002,linkedin,LinkedIn,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_014,obj_002,owner,Owner,workspace-member,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_015,obj_003,name,Name,text,true,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_016,obj_003,status,Status,status,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_017,obj_003,value,Value,number,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_018,obj_003,close_date,Close Date,date,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_019,obj_003,owner,Owner,workspace-member,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+oa_020,obj_003,description,Description,text,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false

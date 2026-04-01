@@ -1,0 +1,4 @@
+id,attribute_id,title,color,is_archived,_fivetran_synced,_fivetran_deleted
+oas_001,oa_016,Open,grey,false,2024-01-01T00:00:00,false
+oas_002,oa_016,Won,green,false,2024-01-01T00:00:00,false
+oas_003,oa_016,Lost,red,false,2024-01-01T00:00:00,false

@@ -1,0 +1,3 @@
+id,first_name,last_name,email_address,access_level,is_confirmed,created_at,_fivetran_synced,_fivetran_deleted
+wm_001,Alice,Johnson,alice@dbt-attio.io,admin,true,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+wm_002,Bob,Smith,bob@dbt-attio.io,member,true,2024-01-01T00:00:00,2024-01-01T00:00:00,false

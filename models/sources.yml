@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: attio
     description: Raw Attio CRM data loaded by Fivetran
-    schema: attio  # override in dbt_project.yml or profiles if needed
+    schema: attio
     tables:
       - name: record
         description: Top-level CRM records (contacts, companies, deals, etc.)
@@ -12,23 +12,28 @@ sources:
             tests: [not_null, unique]
           - name: object_id
             tests: [not_null]
-          - name: created_at
 
       - name: record_value
-        description: EAV table — one row per attribute value per record
+        description: >
+          EAV table — one row per attribute value per record.
+          Key columns: name (attribute slug), record_id, record_object_id,
+          record_workspace_id, value.
         columns:
           - name: id
             tests: [not_null, unique]
           - name: record_id
             tests: [not_null]
-          - name: attribute_id
+          - name: name
+            description: Attribute slug (e.g. "email_addresses", "domains")
             tests: [not_null]
 
       - name: object
-        description: Object type definitions (contact, company, deal, etc.)
+        description: Object type definitions (companies, people, deals, etc.)
         columns:
           - name: id
             tests: [not_null, unique]
+          - name: api_slug
+            tests: [not_null]
 
       - name: object_attribute
         description: Attribute definitions for each object type
@@ -65,7 +70,7 @@ sources:
             tests: [not_null, unique]
 
       - name: list
-        description: Lists in the Attio workspace
+        description: Lists in the Attio workspace (e.g. pipelines)
         columns:
           - name: id
             tests: [not_null, unique]
@@ -90,6 +95,14 @@ sources:
           - name: id
             tests: [not_null, unique]
 
+      - name: list_workspace_member_access
+        description: Which workspace members have access to each list
+        columns:
+          - name: list_id
+            tests: [not_null]
+          - name: workspace_member_id
+            tests: [not_null]
+
       - name: entries
         description: Entries (rows) within Attio lists
         columns:
@@ -99,11 +112,13 @@ sources:
             tests: [not_null]
 
       - name: entries_value
-        description: EAV table — one row per attribute value per list entry
+        description: >
+          EAV table — one row per attribute value per list entry.
+          Same pattern as record_value: name = attribute slug, value = the value.
         columns:
           - name: id
             tests: [not_null, unique]
           - name: entry_id
             tests: [not_null]
-          - name: attribute_id
+          - name: name
             tests: [not_null]

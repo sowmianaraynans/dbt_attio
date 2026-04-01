@@ -1,0 +1,5 @@
+id,list_id,record_id,created_at,_fivetran_synced,_fivetran_deleted
+entry_001,list_001,rec_007,2024-02-01T09:00:00,2024-02-01T09:00:00,false
+entry_002,list_001,rec_008,2024-02-05T10:00:00,2024-02-05T10:00:00,false
+entry_003,list_002,rec_004,2024-02-10T09:00:00,2024-02-10T09:00:00,false
+entry_004,list_002,rec_005,2024-02-12T10:00:00,2024-02-12T10:00:00,false

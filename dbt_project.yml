@@ -14,6 +14,10 @@ macro-paths: ["macros"]
 target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
+seeds:
+  dbt_attio:
+    +schema: attio  # seeds land in 'attio' schema, matching sources.yml
+
 models:
   dbt_attio:
     staging:
@@ -22,3 +26,14 @@ models:
       +materialized: ephemeral
     marts:
       +materialized: table
+
+vars:
+  # Standard Attio object slugs — override if your workspace uses different names
+  attio__company_object_slug: "companies"
+  attio__person_object_slug: "people"
+  attio__deal_object_slug: "deals"
+
+  # Add workspace-specific custom attribute slugs here to include them in pivots
+  attio__company_custom_attributes: []   # e.g. ['arr', 'tier', 'industry']
+  attio__person_custom_attributes: []    # e.g. ['persona', 'seniority']
+  attio__deal_custom_attributes: []      # e.g. ['close_reason', 'product_line']

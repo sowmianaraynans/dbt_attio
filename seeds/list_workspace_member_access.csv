@@ -1,0 +1,4 @@
+list_id,workspace_member_id,access_level,_fivetran_synced
+list_001,wm_001,full,2024-01-01T00:00:00
+list_001,wm_002,full,2024-01-01T00:00:00
+list_002,wm_001,full,2024-01-01T00:00:00

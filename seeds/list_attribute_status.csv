@@ -1,0 +1,10 @@
+id,attribute_id,title,color,is_archived,_fivetran_synced,_fivetran_deleted
+las_001,la_001,Prospecting,grey,false,2024-01-01T00:00:00,false
+las_002,la_001,Qualification,blue,false,2024-01-01T00:00:00,false
+las_003,la_001,Proposal,yellow,false,2024-01-01T00:00:00,false
+las_004,la_001,Negotiation,orange,false,2024-01-01T00:00:00,false
+las_005,la_001,Closed Won,green,false,2024-01-01T00:00:00,false
+las_006,la_001,Closed Lost,red,false,2024-01-01T00:00:00,false
+las_007,la_006,Not Started,grey,false,2024-01-01T00:00:00,false
+las_008,la_006,In Progress,blue,false,2024-01-01T00:00:00,false
+las_009,la_006,Complete,green,false,2024-01-01T00:00:00,false

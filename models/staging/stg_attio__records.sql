@@ -4,14 +4,14 @@ with source as (
 
 renamed as (
     select
-        id                          as record_id,
+        id                      as record_id,
         object_id,
+        workspace_id,
         created_at,
-        -- Fivetran audit columns
         _fivetran_synced,
         _fivetran_deleted
     from source
-    where coalesce(_fivetran_deleted, false) = false
+    where _fivetran_deleted is not true
 )
 
 select * from renamed
