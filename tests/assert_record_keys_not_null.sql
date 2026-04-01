@@ -1,6 +1,4 @@
--- Singular test: no record should be missing both record_id and object_id
--- Returns rows that violate the constraint (dbt fails if any rows returned)
-
+-- Singular test: no record should be missing record_id or object_id
 select
     record_id,
     object_id

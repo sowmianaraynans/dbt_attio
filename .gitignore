@@ -4,3 +4,4 @@ logs/
 dev.duckdb
 dev.duckdb.wal
 .venv/
+profiles.yml

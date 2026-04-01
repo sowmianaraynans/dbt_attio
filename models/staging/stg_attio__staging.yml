@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_attio__records
-    description: Cleaned records — one row per CRM record (contact, company, deal, etc.)
+    description: Cleaned records — one row per CRM record, fivetran_deleted filtered out.
     columns:
       - name: record_id
         tests: [not_null, unique]
@@ -10,41 +10,52 @@ models:
         tests: [not_null]
 
   - name: stg_attio__record_values
-    description: EAV values for records — one row per attribute value per record
+    description: >
+      EAV values for records — one row per attribute value per record.
+      attribute_slug is the Fivetran `name` column (the Attio api_slug).
+      value is always text; type coercion happens in intermediate models.
     columns:
       - name: record_value_id
         tests: [not_null, unique]
       - name: record_id
         tests: [not_null]
-      - name: attribute_id
+      - name: attribute_slug
         tests: [not_null]
 
   - name: stg_attio__objects
-    description: Object type definitions
+    description: Object type definitions (companies, people, deals, etc.)
     columns:
       - name: object_id
         tests: [not_null, unique]
+      - name: api_slug
+        tests: [not_null]
 
   - name: stg_attio__object_attributes
-    description: Attribute schema for each object type
+    description: Attribute schema definitions for each object type.
     columns:
       - name: attribute_id
         tests: [not_null, unique]
+      - name: object_id
+        tests: [not_null]
 
   - name: stg_attio__object_attribute_statuses
-    description: Status options for status-type object attributes
+    description: Status option values for status-type object attributes.
     columns:
       - name: status_id
         tests: [not_null, unique]
+      - name: attribute_id
+        tests: [not_null]
 
   - name: stg_attio__object_attribute_options
-    description: Select options for select-type object attributes
+    description: Select option values for select-type object attributes.
     columns:
       - name: option_id
         tests: [not_null, unique]
+      - name: attribute_id
+        tests: [not_null]
 
   - name: stg_attio__notes
-    description: Notes attached to records
+    description: Notes attached to records.
     columns:
       - name: note_id
         tests: [not_null, unique]
@@ -52,35 +63,47 @@ models:
         tests: [not_null]
 
   - name: stg_attio__workspace_members
-    description: Workspace users
+    description: Attio workspace users.
     columns:
       - name: workspace_member_id
         tests: [not_null, unique]
 
   - name: stg_attio__lists
-    description: Lists in the workspace
+    description: Lists in the workspace (e.g. sales pipelines).
     columns:
       - name: list_id
         tests: [not_null, unique]
 
   - name: stg_attio__list_attributes
-    description: Attribute schema for each list
+    description: Attribute schema for each list.
     columns:
       - name: attribute_id
         tests: [not_null, unique]
+      - name: list_id
+        tests: [not_null]
 
   - name: stg_attio__list_attribute_statuses
+    description: Status options for status-type list attributes.
     columns:
       - name: status_id
         tests: [not_null, unique]
 
   - name: stg_attio__list_attribute_options
+    description: Select options for select-type list attributes.
     columns:
       - name: option_id
         tests: [not_null, unique]
 
+  - name: stg_attio__list_workspace_member_access
+    description: Which workspace members can access each list.
+    columns:
+      - name: list_id
+        tests: [not_null]
+      - name: workspace_member_id
+        tests: [not_null]
+
   - name: stg_attio__entries
-    description: List entries — the join between a record and a list
+    description: Entries (rows) within Attio lists — the join between a record and a list.
     columns:
       - name: entry_id
         tests: [not_null, unique]
@@ -90,11 +113,13 @@ models:
         tests: [not_null]
 
   - name: stg_attio__entries_values
-    description: EAV values for list entries
+    description: >
+      EAV values for list entries — same pattern as record_value.
+      attribute_slug is the Fivetran `name` column.
     columns:
       - name: entry_value_id
         tests: [not_null, unique]
       - name: entry_id
         tests: [not_null]
-      - name: attribute_id
+      - name: attribute_slug
         tests: [not_null]

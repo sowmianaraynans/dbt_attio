@@ -1,6 +1,4 @@
 -- Singular test: every record_value must reference an existing record
--- Returns orphaned record_values (dbt fails if any rows returned)
-
 select
     rv.record_value_id,
     rv.record_id

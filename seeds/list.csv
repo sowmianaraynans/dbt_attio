@@ -1,0 +1,3 @@
+id,api_slug,name,object_id,workspace_id,created_at,_fivetran_synced,_fivetran_deleted
+list_001,sales_pipeline,Sales Pipeline,obj_003,ws_001,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+list_002,onboarding,Onboarding,obj_002,ws_001,2024-01-01T00:00:00,2024-01-01T00:00:00,false

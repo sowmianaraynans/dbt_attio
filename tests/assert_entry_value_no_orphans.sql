@@ -1,6 +1,4 @@
 -- Singular test: every entries_value must reference an existing entry
--- Returns orphaned entry values (dbt fails if any rows returned)
-
 select
     ev.entry_value_id,
     ev.entry_id

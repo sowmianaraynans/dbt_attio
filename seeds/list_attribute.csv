@@ -1,0 +1,8 @@
+id,list_id,api_slug,title,type,is_required,is_unique,is_multiselect,is_archived,created_at,_fivetran_synced,_fivetran_deleted
+la_001,list_001,stage,Stage,status,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_002,list_001,owner,Owner,workspace-member,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_003,list_001,value,Value,number,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_004,list_001,close_date,Close Date,date,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_005,list_001,priority,Priority,select,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_006,list_002,stage,Stage,status,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false
+la_007,list_002,owner,Owner,workspace-member,false,false,false,false,2024-01-01T00:00:00,2024-01-01T00:00:00,false

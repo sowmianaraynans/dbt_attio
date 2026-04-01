@@ -1,0 +1,6 @@
+id,record_id,parent_object,title,content_plaintext,created_by_workspace_member_id,created_at,updated_at,_fivetran_synced,_fivetran_deleted
+note_001,rec_001,companies,Discovery Call,Had a great initial call with Jane from Acme. They are evaluating us for their sales team.,wm_001,2024-01-20T14:00:00,2024-01-20T14:00:00,2024-01-20T14:00:00,false
+note_002,rec_001,companies,Follow Up,Sent over the proposal. Waiting on sign-off from their CFO.,wm_001,2024-01-25T10:00:00,2024-01-25T10:00:00,2024-01-25T10:00:00,false
+note_003,rec_004,people,Intro Call,Jane is the main champion. Very engaged and asked good questions about integrations.,wm_001,2024-01-21T11:00:00,2024-01-21T11:00:00,2024-01-21T11:00:00,false
+note_004,rec_007,deals,Deal Update,Moving to contract stage. Legal review expected to take 2 weeks.,wm_001,2024-03-01T09:00:00,2024-03-01T09:00:00,2024-03-01T09:00:00,false
+note_005,rec_005,people,Technical Review,John wants a deep-dive on the API. Scheduling with engineering.,wm_002,2024-01-28T15:00:00,2024-01-28T15:00:00,2024-01-28T15:00:00,false

@@ -6,25 +6,15 @@ renamed as (
     select
         id                          as entry_value_id,
         entry_id,
-        attribute_id,
-        value_text,
-        value_number,
-        value_boolean,
-        value_date,
-        value_timestamp,
-        value_record_reference_id,
-        value_workspace_member_id,
-        value_option_id,
-        value_status_id,
-        value_currency_value,
-        value_currency_currency_code,
+        name                        as attribute_slug,  -- e.g. 'stage', 'status', 'owner'
+        value,                                          -- raw scalar value (text)
         active_from,
         active_until,
         created_at,
         _fivetran_synced,
         _fivetran_deleted
     from source
-    where coalesce(_fivetran_deleted, false) = false
+    where _fivetran_deleted is not true
 )
 
 select * from renamed

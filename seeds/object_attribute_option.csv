@@ -1,0 +1,4 @@
+id,attribute_id,title,color,is_archived,_fivetran_synced,_fivetran_deleted
+oao_001,oa_007,SaaS,blue,false,2024-01-01T00:00:00,false
+oao_002,oa_007,FinTech,green,false,2024-01-01T00:00:00,false
+oao_003,oa_007,Enterprise Software,purple,false,2024-01-01T00:00:00,false

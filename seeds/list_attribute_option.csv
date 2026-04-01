@@ -1,0 +1,4 @@
+id,attribute_id,title,color,is_archived,_fivetran_synced,_fivetran_deleted
+lao_001,la_005,High,red,false,2024-01-01T00:00:00,false
+lao_002,la_005,Medium,yellow,false,2024-01-01T00:00:00,false
+lao_003,la_005,Low,green,false,2024-01-01T00:00:00,false

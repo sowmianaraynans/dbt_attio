@@ -8,7 +8,7 @@ renamed as (
         object_id,
         api_slug,
         title,
-        type,           -- text, number, boolean, date, timestamp, record-reference, etc.
+        type,
         is_required,
         is_unique,
         is_multiselect,
@@ -17,7 +17,7 @@ renamed as (
         _fivetran_synced,
         _fivetran_deleted
     from source
-    where coalesce(_fivetran_deleted, false) = false
+    where _fivetran_deleted is not true
 )
 
 select * from renamed
