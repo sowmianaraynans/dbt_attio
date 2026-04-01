@@ -58,8 +58,11 @@ entry_values_enriched as (
         ev.value,
         coalesce(sl.status_label, ol.option_label, ev.value) as resolved_value
     from entry_values ev
+    inner join entries e
+        on ev.entry_id = e.entry_id
     left join list_attrs la
         on ev.attribute_slug = la.api_slug
+        and e.list_id = la.list_id
     left join status_labels sl
         on la.attribute_id = sl.attribute_id
         and ev.value = sl.status_id
